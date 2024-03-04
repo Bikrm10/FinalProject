@@ -3,3 +3,5 @@
 venv/
 model1.h5
 __pycache__
+classifier.pickle
+xgboost-1.6.1-cp311-cp311-win_amd64.whl

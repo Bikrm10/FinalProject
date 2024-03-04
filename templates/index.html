@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Genre Classification </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Kanit&family=Merriweather+Sans:wght@800&family=Open+Sans:wght@600&family=Poppins:wght@300;500;600&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -14,216 +17,633 @@
             font-family: 'Kanit', sans-serif;
         }
 
-        body {
-            background-image: url("https://media.istockphoto.com/id/1225669546/photo/male-musician-playing-acoustic-guitar.jpg?s=1024x1024&w=is&k=20&c=MdA_jcLScuaNAjuhHdFhCsIgHrGIH65FimHeaEC2L-s=");
-        }
-
-        .heading {
-            text-align: center;
-            color: #4CAF50;
-            font-size: 40px;
-            margin-top: 50px;
-            margin-bottom: 50px;
-            text-emphasis-color:  #64f6ad;
-
-            
-        }
-        .heading3{
-            color: #12090a;
-            margin-top: -20px;
-            margin-left: 550px;
-        }
-
         .container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    animation-name: fadeIn;
-    animation-duration: 4s;
-}
+            width: 100%;
+            height: 200vh;
+        }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
+        .display {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+        }
 
-.pulsate {
-    animation: pulsate 10s infinite alternate;
-}
+        .display .left {
+            width: 50%;
+            padding: 100px 10px 10px 10px;
 
-@keyframes pulsate {
-    from {
-        transform: scale(1);
-        border-width: 1px;
-    }
-    to {
-        transform: scale(1.05);
-        border-width: 5px;
-    }
-}
+        }
 
+        .left h1 {
+            font-size: 60px;
+            margin: 10px 20px;
+            color: #6c63ff;
+        }
+
+        .left p {
+            margin: 20px 20px;
+        }
+
+        .right {
+            width: 50%;
+            height: 100%;
+        }
+
+        .right img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        button {
+            border: 0;
+            padding: 15px 30px;
+            color: white;
+            background-color: #6c63ff;
+            margin: 20px;
+            border-radius: 5px;
+        }
 
         .content {
             width: 100%;
-            max-width: 500px;
-            padding: 20px;
+            padding: 10px;
             border-radius: 10px;
-            background-color: #d2e0e0;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        img {
-            height: 200px;
-            width: 200px;
-        }
-
-        input[type='file'] {
-            display: block;
-            margin-bottom: 10px;
-            margin-left: 60px;
-        }
-
-        label,
-        input[type="submit"] {
-            background-color: #dc3545;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 8px;
-            outline: none;
-            border: none;
-            cursor: pointer;
-        }
-
-        input[type='submit'] {
-            background-color: #4CAF50;
-            margin-top: -30px;
-            margin-bottom: 10px;
-            transition: background-color 2s ease;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #174319;
-        }
-        input[type="submit"]:active {
-            animation: clickAnimation 2s ease;
-        }
-        @keyframes clickAnimation {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-input[type="submit"]:active + .container {
-    animation: pulseBorder 2s infinite alternate; /* Pulsating border animation */
-}
-
-@keyframes pulseBorder {
-    0% {
-        border-color: #4CAF50;
-        box-shadow: 0 0 10px rgba(77, 6, 218, 0.5);
-    }
-    100% {
-        border-color: #f90f27;
-        box-shadow: 0 0 20px rgba(23, 67, 25, 0.8);
-    }
-}
-
-        form {
+            height: 100%;
+            margin: auto;
             display: flex;
+            align-items: center;
             flex-direction: column;
+
+        }
+        .content h2{
+            text-align: center;
+            margin: 50px;
+        }
+
+        #spectrogram_image {
+            margin: 20px 0;
+        }
+        .material-symbols-outlined{
+            color: #6c63ff;
+        }
+        label{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 50px;
+            font-size: 20px;
+            border-radius: 5px;
+            border: 2px solid #6c63ff;
+            padding: 10px;
+        }
+        input[type="file"] {
+            font-size: 18px;
+            display: none;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            background-color: #6c63ff;
+            margin: 20px 0;
+            color: #fff;
+            border: 0;
+            border-radius: 5px;
+        }
+
+       
+
+        /* .footer{
+            height: 100px;
+            width: 100%;
+            background-color: red;
+        } */
+
+         
+
+
+
+        .footer {
+            display: flex;
+            flex-flow: row wrap;
+            padding: 30px 30px 20px 30px;
+            color: #2f2f2f;
+            background-color: #fff;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .footer>* {
+            flex: 1 100%;
+        }
+
+        .footer__addr {
+            margin-right: 1.25em;
+            margin-bottom: 2em;
+        }
+
+        .footer__logo {
+            font-family: 'Pacifico', cursive;
+            font-weight: 400;
+            text-transform: lowercase;
+            font-size: 1.5rem;
+        }
+
+        .footer__addr h2 {
+            margin-top: 1.3em;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        .nav__title {
+            font-weight: 400;
+            font-size: 15px;
+        }
+
+        .footer address {
+            font-style: normal;
+            color: #999;
+        }
+
+        .footer__btn {
+            display: flex;
             align-items: center;
             justify-content: center;
-            gap: 20px;
+            height: 36px;
+            max-width: max-content;
+            background-color: #6c63ff;
+            border-radius: 100px;
+            color: #fff;
+            line-height: 0;
+            margin: 0.6em 0;
+            font-size: 1rem;
+            padding: 0 1.3em;
         }
 
-        #predictionResult {
-            color: #2874f0;
-            margin-top: 30px;
+        .footer ul {
+            list-style: none;
+            padding-left: 0;
         }
 
+        .footer li {
+            line-height: 2em;
+        }
+
+        .footer a {
+            text-decoration: none;
+        }
+
+        .footer__nav {
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+        .footer__nav>* {
+            flex: 1 50%;
+            margin-right: 1.25em;
+        }
+
+        .nav__ul a {
+            color: #999;
+        }
+
+        .nav__ul--extra {
+            column-count: 2;
+            column-gap: 1.25em;
+        }
+
+        .legal {
+            display: flex;
+            flex-wrap: wrap;
+            color: #999;
+        }
+
+        .legal__links {
+            display: flex;
+            align-items: center;
+        }
+
+        .heart {
+            color: #2f2f2f;
+        }
+
+        @media screen and (min-width: 24.375em) {
+            .legal .legal__links {
+                margin-left: auto;
+            }
+        }
+
+        @media screen and (min-width: 40.375em) {
+            .footer__nav>* {
+                flex: 1;
+            }
+
+            .nav__item--extra {
+                flex-grow: 2;
+            }
+
+            .footer__addr {
+                flex: 1 0px;
+            }
+
+            .footer__nav {
+                flex: 2 0px;
+            }
+        }
+        
+
+        /* working area */
+
+        #workingArea{
+            position: relative;
+            width: 60%;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            height: 600px;
+            left: 50%;
+            transform: translate(-50% ,0);
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        #imageClassifier, #musicClassifier {
+            
+            width: 100%;
+            height: 600px;
+            position: absolute;
+            
+
+        }
+        #musicClassifier{
+            display: flex;
+            left: 100%;
+            transition: transform 0.5s ease;
+        }
+        #musicLeft{
+            width: 50%;
+        }
+        #musicRight{
+            width: 50%;
+        }
+        #imageClassifier{
+            display: flex;
+            transition: transform 0.5s ease;
+
+        }
+        #musicClassifier.active{
+            transform: translate(-100%);
+        }
+        /* #imageClassifier.active{
+            transform: translate(100%);
+        } */
+        
+        
+        #imageLeft{
+           width: 50%;
+        }
+        #imageRight{
+            width: 50%;
+        }
+        #imageLeft, #musicRight{
+            background-color: #fff;
+        }
+        #imageRight{
+            width: 50%;
+            background-color: #6c63ff;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+        
+        #musicLeft{
+            width: 50%;
+            background-color: #6c63ff;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .toggleButton{
+            border-radius: 5px;
+            padding: 10px 20px;
+            outline: none;
+            border: 2px solid #fff;
+            font-size: 18px;
+            
+        }
     </style>
 
-    
-    
+
+
 </head>
+
 <body>
-    
-    <h1 class="heading">Music Genre Classifier</h1>
-    <h3 class="heading3">Discover your journey with music</h3>
+
     <div class="container">
-        <div class="img">
-           
+
+        <div class="display">
+            <div class="left">
+                <h1>
+                    Discover Your Sound: GenreBlend
+                </h1>
+                <p>
+                    Our system employs spectrogram images as input to predict music genres<br /> based on their unique
+                    visual patterns. By leveraging these distinctive features,<br /> our platform offers efficient and
+                    accurate genre classification, enhancing the overall user experience
+                </p>
+                <button>
+                    Try Now
+                </button>
+            </div>
+            <div class="right">
+                <img src="https://i.ibb.co/zfcXp8V/main.png" alt="">
+            </div>
         </div>
-        <div class="content">
+
+        <div id="workingArea">
+
+            <!-- music classifier area -->
+
+            <div id="musicClassifier">
+                <div id="musicLeft">
+                    <h1>Hello Firend!</h1>
+                    <h5>Do you wnat to classify music genre using spectrogram image file</h5>
+                    <button id="musicPageButton" class="toggleButton">Classify Image File</button>
+                </div>
+                <div id="musicRight">
+                    <div class="content">
+                        <form action="/upload" id = "uploadForm" method="post" enctype="multipart/form-data">
+                            <h2 for="audioFile">Select an audio file</h2><br/>
+                            
+                            <label for="wavFile"><span class="material-symbols-outlined">gallery_thumbnail</span> Choose .wav file</label>
+                            <input type="file" id="wavFile" name="fileInput" accept=".wav" required>
+                            <br>
+                            <input type="submit" value="Upload">
+                        </form>
+                        <h2>Prediction Result:</h2>
+                        <p id="uploadResult"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- image classsifier area -->
+
+            <div id="imageClassifier" >
+                <div id="imageLeft">
+                    <div class="content">
             
-            <form action="/predict" method="post" enctype="multipart/form-data">
-                <label for="audioFile">Select an spectrogram image</label>
-                <input type="file" id="spectrogram_image" name="file" accept="image/*" required>
-                <br>
-                <input type="submit" value="Predict">
+                        <form action="/predict" method="post" enctype="multipart/form-data" id="image-form">
+                            <h2 for="audioFile">Select an spectrogram image</h2><br/>
+                            <label for="spectrogram_image">
+                                <span class="material-symbols-outlined">gallery_thumbnail</span> Choose image
+                            </label>
+                            <input type="file" id="spectrogram_image" name="file" accept="image/*" required>
+                            <br>
+                            <input type="submit" value="Predict">
+                            
+                            </form>
+                        <h2>Prediction Result:</h2>
+                        <p id="predictionResult"></p>
+            
+                    
+                    </div>
+                </div>
+                <div id="imageRight">
+                    <h1>Hello Friends !</h1>
+                    <h5>Do you want to classify music genre using .wav music file</h5>
+                    <button id="imagePageButton" class="toggleButton">Classify Music File</button>
+                </div>
                 
-                </form>
-                
-              
-            <h2>Prediction Result:</h2>
-            <p id="predictionResult"></p>
+            </div>
+            
+        </div>
+
+
+
+        <!-- new page -->
 
         
-        </div>
+
+        <!-- <div class="secPage">
+            <div class="left">
+                <img src="C:\Users\anil\Downloads\undraw_Listening_re_c2w0.png" alt="">
+            </div>
+            <div class="content">
+            
+                <form action="/predict" method="post" enctype="multipart/form-data">
+                    <h2 for="audioFile">Select an spectrogram image</h2><br/>
+                    <input type="file" id="spectrogram_image" name="file" accept="image/*" required>
+                    <br>
+                    <input type="submit" value="Predict">
+                    
+                    </form>
+                    
+                  
+                <h2>Prediction Result:</h2>
+                <p id="predictionResult"></p>
+    
+            
+            </div>
+        </div> -->
     </div>
+
+
     <audio id="cheeringSound">
         <source src="https://youtu.be/w0xbP83McGk" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-   
-    
+
+    <!-- footer region -->
+    <footer class="footer">
+        <div class="footer__addr">
+            <h1 class="footer__logo">Something</h1>
+
+            <h2>Contact</h2>
+
+            <address>
+                5534 Somewhere In. The World 22193-10212<br>
+
+                <a class="footer__btn" href="mailto:example@gmail.com">Email Us</a>
+            </address>
+        </div>
+
+        <ul class="footer__nav">
+            <li class="nav__item">
+                <h2 class="nav__title">Media</h2>
+
+                <ul class="nav__ul">
+                    <li>
+                        <a href="#">Online</a>
+                    </li>
+
+
+                </ul>
+            </li>
+
+            <li class="nav__item nav__item--extra">
+                <h2 class="nav__title">Technology</h2>
+
+                <ul class="nav__ul nav__ul--extra">
+                    <li>
+                        <a href="#">Music Genre Classifier</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Spectrogram image analysis</a>
+                    </li>
+
+                    <li>
+                        <a href="#">music analysis</a>
+                    </li>
+
+
+                </ul>
+            </li>
+
+            <li class="nav__item">
+                <h2 class="nav__title">Legal</h2>
+
+                <ul class="nav__ul">
+                    <li>
+                        <a href="#">Privacy Policy</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Terms of Use</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Sitemap</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="legal">
+            <p>&copy; 2024 Something. All rights reserved.</p>
+
+            <div class="legal__links">
+                <span>Made with <span class="heart">♥</span> remotely from Anywhere</span>
+            </div>
+        </div>
+    </footer>
+
 
     <script>
 
 
 
+        //  for page toggle section
+        const workingArea = document.getElementById('workingArea');
+
+        const musBtn = document.getElementById('musicPageButton');
+        const imgBtn = document.getElementById('imagePageButton');
+        const imageClassifierPage=document.getElementById("imageClassifier")
+        const musicClassifierPage=document.getElementById("musicClassifier")
+
+        imgBtn.addEventListener("click",()=>{
+            imageClassifierPage.classList.remove("active");
+            musicClassifierPage.classList.add("active")
+            imageClassifierPage.style.transform="translate(100%)"
+            
+        })
+        musBtn.addEventListener("click",()=>{
+            musicClassifierPage.classList.remove("active");
+            imageClassifierPage.classList.add("active");
+            imageClassifierPage.style.transform="translate(00%)"
+
+            
+        })
 
 
 
-        // Display prediction result
+        // Display prediction result for image
+
         document.addEventListener('DOMContentLoaded', function () {
             const predictionResultElement = document.getElementById('predictionResult');
-           // const audioPlayer = document.getElementById('audioPlayer');
-    
-            const form = document.querySelector('form');
+            // const audioPlayer = document.getElementById('audioPlayer');
+
+            const form = document.getElementById('image-form');
             form.addEventListener('submit', async function (event) {
                 event.preventDefault();
-    
+
                 const formData = new FormData(form);
                 const response = await fetch('/predict', {
                     method: 'POST',
                     body: formData
                 });
-    
+
                 const result = await response.json();
                 predictionResultElement.textContent = `Predicted Genre: ${result.predicted_class}`;
-                
+
                 // Update audio player source
-               // audioPlayer.src = result.audio_url;
-    
+                // audioPlayer.src = result.audio_url;
+
                 // Display the audio player and prediction result
-               // audioPlayer.style.display = 'block';
+                // audioPlayer.style.display = 'block';
                 predictionResultElement.style.display = 'block';
             });
         });
-    </script>
+
+
+        // for audio section
+
+        // Assuming you have a form with id "uploadForm" and an input field with type "file" and name "fileInput"
+        document.addEventListener('DOMContentLoaded', function () {
+                const form = document.getElementById('uploadForm');
+                const fileInput = document.getElementById('wavFile');
+                const predictionResultElement = document.getElementById('uploadResult');
+
+                
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault(); // Prevent the default form submission
+
+                    const formData = new FormData();
+                    formData.append('file', fileInput.files[0]); // Append the selected file to the FormData object
+                    console.log('sending form data to the server')
+                    let result;
+                    try {
+                        const response = await fetch('/upload/audio', {
+                            method: 'POST',
+                            body: formData
+                        });
+
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+
+                        result = await response.json();
+                        console.log(result); // Do something with the response data
+                    } catch (error) {
+                        console.error('Error:', error);
+                    }
+
+                    console.log(result)
+                predictionResultElement.textContent = `Predicted Genre: ${result.predicted_label}`;
+                
+                // Update audio player source
+                audioPlayer.src = result.audio_url;
     
+                // Display the audio player and prediction result
+                audioPlayer.style.display = 'block';
+                predictionResultElement.style.display = 'block';
+                });
+
+                
+            });
+        
+
+    </script>
+
 </body>
+
 </html>
